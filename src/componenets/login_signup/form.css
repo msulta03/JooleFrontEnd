@@ -1,0 +1,93 @@
+.ui.right.aligned.header {
+    text-align: right;
+    margin: 1em;
+    padding-right: 2em;
+    color: #444141;
+    cursor: pointer;
+}
+
+h4.ui.right.aligned.header:hover {
+    color: rgb(31, 80, 123);
+}
+
+.ui.section.divider {
+    width: 97%;
+    margin: 0px auto;
+}
+
+
+
+/* the big parent form that surrounds the card */
+.form_parent{
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.ui.card{
+    
+    background-color: rgba(255, 0, 0, 0.0);
+    padding: 1em;
+
+
+    box-shadow: none;
+
+    /* to center child div */
+    margin: 0 auto;
+    width: 40%;
+
+
+    margin-top: 5em;
+}
+
+.logo_form_group{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.logo_form_image{
+    width: 55%;
+    height: 20%;
+    
+}
+
+.logo_form_slogan{
+    
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 1.3em;
+    font-weight: 900;
+
+    padding-top: 1em;
+    padding-bottom: 1em;    
+
+    color: grey;
+    
+}
+.ui.section.divider{
+    margin-bottom: 4em;
+}
+
+p.logo_form_slogan{
+    text-align: center;
+}
+
+/* property for changing all input types */
+.ui.form input:not([type]), .ui.form input[type=date], .ui.form input[type=datetime-local], .ui.form input[type=email], .ui.form input[type=file], .ui.form input[type=number], .ui.form input[type=password], .ui.form input[type=search], .ui.form input[type=tel], .ui.form input[type=text], .ui.form input[type=time], .ui.form input[type=url]{
+   font-family: 'Times New Roman', Times, serif;
+   font-size: 1.1em;
+    border-radius: .5em;
+    border: .15em solid #babfbb;
+}
+
+.ui.button{
+    float: right;
+    color:white;
+    background-color: RGB(31, 80, 123);
+
+}
+
+
+
+
