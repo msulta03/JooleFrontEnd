@@ -1,0 +1,27 @@
+/* mo3zm el hena msh shaghal */
+.search-bar button.ui.icon.button{
+    width:10%;
+};
+
+.ui.input{
+    display: flex;
+    color:red;
+}
+.ui.dropdown .menu .selected.item, .ui.dropdown.selected{
+    color: rgb(31, 80, 123);
+    font-size: 1.3em;
+};
+
+.ui.dropdown .menu>.item{
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 2em;
+    color: red;
+}
+
+.ui.form input{
+    width: 100%;
+}
+
+.search-bar-container{
+    width: 100%;
+}

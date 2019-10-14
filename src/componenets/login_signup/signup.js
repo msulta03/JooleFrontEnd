@@ -1,7 +1,13 @@
 import React from 'react';
 import {Input, Card, Button, Form, Header, Divider} from 'semantic-ui-react';
 import axios from 'axios';
+import {Redirect, Link} from 'react-router-dom';
+
 import Logo from '../../images/joole_logo.png';
+import Login from './login';
+
+
+
 
 import './form.css';
 
@@ -29,6 +35,15 @@ class SignupForm extends React.Component{
         console.log(this.state);
     }
 
+    signupSuccess = () => {
+        this.setState(prevState =>({
+           ...prevState,
+           userAdded: true
+        }))
+
+        console.log(this.state);
+    }
+
     onSubmit(e){
         e.preventDefault();
 
@@ -48,7 +63,7 @@ class SignupForm extends React.Component{
             }).then(response => {
                 console.log(response);
                 console.log('singup worked!');
-                
+                this.signupSuccess();
                 
             }).catch (response => {
                 console.log("shit don't work");
@@ -70,13 +85,22 @@ class SignupForm extends React.Component{
     }
 
 render (){
+    if(this.state.userAdded === true){
+        console.log('it hit');
+        return(
+            <Redirect render={Login} to="/signin" />
+        );
+    }
 
     return (
         
     <div className = 'form_parent'>
             {/* TODO: fix this in login and signup */}
             <Header as="h4" textAlign="right" onClick = {this.tryThis}>
+               
+                <Link to="/login">
                 Log in
+                </Link>
             </Header>
 
             <Divider section />

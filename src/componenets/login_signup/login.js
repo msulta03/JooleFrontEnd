@@ -1,7 +1,11 @@
 import React from 'react';
+import Logo from '../../images/joole_logo.png';
+import Home from './Home';
+
 import {Input, Card, Button, Form, Header, Divider} from 'semantic-ui-react';
 import axios from 'axios';
-import Logo from '../../images/joole_logo.png';
+
+import {Link, Redirect} from 'react-router-dom';
 
 import './form.css';
 
@@ -13,7 +17,7 @@ class LoginForm extends React.Component{
     state = {
         username: '',
         password: ''
-    };
+    }
 
     handleChange(e) {
         const target = e.target;
@@ -26,40 +30,59 @@ class LoginForm extends React.Component{
         
     }
 
-    handleSubmit (e) {
-        e.preventDefault();
+    loginSuccess = () => {
+        this.setState(prevState =>({
+           ...prevState,
+           loggedIn: true
+        }))
+
         console.log(this.state);
-
-        axios.post(this.url, this.state,).then((res)=>{
-            console.log(res);
-            
-        }).then(response => {
-            console.log("login worked");
-            
-            console.log(response);
-            
-            
-        }).catch(error => {
-            console.log("shit don't work");
-            console.log(error);
-            
-            
-        })
-
     }
-    tryThis(e) {
+
+    handleSubmit(e){
+        console.log('fi el handle submit');
+        
+        axios.post('http://localhost:8080/api/auth/login', this.state)
+        .then(response => {
+            console.log('login works');
+            console.log(response);
+            this.loginSuccess()
+            
+                } 
+            )
+            .catch(error =>{
+                console.log('shit dont work');
+                console.log(this.state);
+                
+                alert(error);
+            })
+    }
+
+
+    //debugging purposes
+    tryThis() {
         return console.log('clicked!');
         
     }
 
 render (){
 
-    return (
-        
-    <div className = 'form_parent'>
+    if (this.state.loggedIn === true){
+        this.tryThis();
+        return (
+            <Redirect render={Home} to="/home"/>
+        );
+    }
 
-            <Header as="h4" textAlign="right" onClick = {this.tryThis}>
-                Sign Up
+    return (
+    
+    <div className = 'form_parent'>
+        
+
+            <Header as="h4" textAlign="right" onClick = {e => this.tryThis(e)}>
+                <Link to="/signup">
+                Sign up
+                </Link>
             </Header>
 
             <Divider section />
