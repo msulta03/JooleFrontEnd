@@ -94,7 +94,7 @@ render (){
 
     return (
         
-    <div className = 'form_parent'>
+    <div className = 'form_parent form'>
             {/* TODO: fix this in login and signup */}
             <Header as="h4" textAlign="right" onClick = {this.tryThis}>
                

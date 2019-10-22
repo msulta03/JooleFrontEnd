@@ -12,13 +12,19 @@ import './form.css';
  
 class LoginForm extends React.Component{
 
-    url = 'http://localhost8080/api/auth/signin';
+    url = 'http://localhost:8080/api/auth/signin';
     
     state = {
         username: '',
         password: ''
     }
 
+    // style = {
+    //     position: 'absolute',
+    //     top: 0,
+    //     bottom: 0,
+    //     backgroundColor: 'red'
+    // };
     handleChange(e) {
         const target = e.target;
         const name = target.name;
@@ -42,7 +48,7 @@ class LoginForm extends React.Component{
     handleSubmit(e){
         console.log('fi el handle submit');
         
-        axios.post('http://localhost:8080/api/auth/login', this.state)
+        axios.post(this.url, this.state)
         .then(response => {
             console.log('login works');
             console.log(response);
@@ -76,7 +82,7 @@ render (){
 
     return (
     
-    <div className = 'form_parent'>
+    <div className = 'form_parent form' >
         
 
             <Header as="h4" textAlign="right" onClick = {e => this.tryThis(e)}>

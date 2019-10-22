@@ -1,0 +1,200 @@
+@import '~antd/dist/antd.css';
+/* navbar section */
+.ui.accordion .item .title{
+    font-size: 1.3em;
+    font-weight: 700;
+}
+.row-of-buttons{
+    padding: .2em 0 .2em 0;
+    display:flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+}
+.row-of-buttons .ui.button{
+    background-color:rgb(112, 109, 109);
+    color: white;
+
+}
+.row-of-buttons .ui.button:hover{
+    background-color:rgb(170, 164, 164);
+    color: black;
+
+}
+.product-nav-bar{
+    padding: .5em 0 .2em 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    background-image: linear-gradient(-90deg,#7db7ef, white );
+}
+
+.product-nav-bar img{
+
+    width: 7em;
+    height: 4em;
+}
+
+.navbar-avatar-section h4 {
+    text-align: right;
+    margin: 1em;
+   
+    color: #3a89d8;
+    cursor: pointer;
+    font-size: 1.2em;
+}
+.navbar-avatar-section h4:hover{
+    color: rgb(31, 80, 123);
+}
+
+#avatar{
+    
+    border-radius: 50%;
+    width: 25%;
+    height: 25%;
+   
+}
+
+.search-bar{
+    width: 130%;
+}
+
+.navbar-avatar-section{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+/* sidebar section */
+
+.ui.vertical.menu{
+    width: 30%;
+    margin: 0 0 0 0;
+}
+.ui.menu .item{
+    padding: 0 0 .3em .2em;
+}
+.ui.form .inline.fields {
+    margin: 0;
+    padding: 0;
+    align-items: baseline;
+}
+
+.ui.form .inline.fields .field{
+    padding: 0 1em 0 1em;
+}
+
+.side-menue-header .ui.form .field .ui.input input, .ui.form .fields .field .ui.input input{
+    width: 30%;
+    font-family: Arial, Helvetica, sans-serif;
+    font-size: 1.1em;
+    text-align: center;
+    font-weight: bold;
+}
+
+.side-menue-header p {
+    
+    font-size: 2em;
+}   
+
+
+/* slider section */
+.ui.form input:not([type]){
+    width: 70%;
+    text-align: left;
+}
+
+
+#left-slider-input{
+    width: 3.3em;
+    margin: 0 .2em 0 .2em;
+    text-align: left;
+}
+#right-slider-input{
+    width: 3.3em;
+    margin: 0 .2em 0 0; 
+    text-align: left;
+}
+
+.slider-title{
+    display: flex;
+    flex-direction: row;
+    align-items: baseline;
+}
+
+
+.slider-title :last-child{
+    margin-bottom: 1em;
+}
+
+.ant-slider-handle{
+    background-color: grey;
+    border-color: rgb(112, 109, 109);
+}
+
+.ant-slider-track{
+    background-color: grey;
+}
+
+
+
+/* product card */
+
+.Product.ui.card{
+    padding: 0;
+    border: 1px solid gray;
+    margin: .2em 0 0 .2em;
+    width: 25%;
+
+}
+.Product.ui.card > p{
+    text-align: end;
+    color: rgb(39, 127, 243);
+    
+}
+
+.Product.ui.card>.content{ 
+    padding: 0;
+
+}
+
+.Product.ui.card>.extra{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .2em 0 0 1em;
+}
+.Product.ui.card>.content>.description{
+    text-align: center;
+    color:red;
+}
+.Product.ui.card>.content>.header{
+    text-align: center;
+    color: rgb(31, 80, 123); 
+}
+.Product.ui.card .meta{
+    text-align: center;
+    background-color: rgb(179, 179, 179);
+}
+.ui.item.simple.dropdown{
+    color: white;
+    padding: .3em;
+    background-color: #3a89d8;
+}
+.ui.dropdown>.dropdown.icon{
+    color: black;
+}
+/* product Page in total */
+.ui.grid{
+    margin :0;
+}
+.ui.grid>.row{
+    padding: 0 0 0 .1em;
+}
+
+.product-page-body{
+    background-color: white;
+
+}

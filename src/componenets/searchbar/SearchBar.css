@@ -23,5 +23,6 @@
 }
 
 .search-bar-container{
-    width: 100%;
+    width: inherit;
 }
+

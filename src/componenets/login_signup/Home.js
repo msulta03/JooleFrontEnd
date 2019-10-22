@@ -18,7 +18,7 @@ class Home extends React.Component{
 
     render(){
         return (
-            <div >
+            <div className = 'form_parent'>
                  <div className="signup-header">
                     <HomeHeader/>
                 </div>
