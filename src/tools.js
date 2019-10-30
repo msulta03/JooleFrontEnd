@@ -6,3 +6,9 @@ export const updateObject = (oldObject, updatedProperties) => {
         ...updatedProperties
     };
 };
+
+//FIXME: debugging purposes
+ export const  tryThis = () => {
+        return console.log('clicked!');
+        
+    }

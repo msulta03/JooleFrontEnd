@@ -75,7 +75,7 @@ class ProductSearchFilter extends Component {
         <Menu.Item>
           <Accordion.Title
             active={activeIndex === 3}
-            content='Size'
+            content='whaterver'
             index={3}
             onClick={this.handleClick}
           />

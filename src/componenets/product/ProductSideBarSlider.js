@@ -1,11 +1,14 @@
 import { Slider, Input, Row, Col } from 'antd';
 import { Icon } from 'semantic-ui-react'
 import React from 'react';
+        //FIXME: NAN value breaks buttons
+
 
 class ProductSideBarSlider extends React.Component {
   constructor(props){
     super(props);
   }
+
   state = {
     inputValue: [0,20],
     minrange: 0,
@@ -14,40 +17,60 @@ class ProductSideBarSlider extends React.Component {
 
 
 
+
+
   onChanger (e, num) {
     
     let arr = this.state.inputValue;
     console.log(arr + ' from outside if');
     console.log(e + ' :current e');
+    console.log(typeof e === 'number' );
+    console.log(typeof(e));
     console.log(num + ' :curent num');
+  
     
     
     //check for limits and input type
-    if(typeof e === 'number' ) {
+    if(num == 1 || num == -1 ) {
+      let targetE = parseInt(e.target.value);
       //right button changes
+
       if (num === 1){
-        if (e <= arr[0]){
-          this.setState ({inputValue: [arr[0],arr[0]+1] });
+
+
+        switch (targetE){
+          case targetE == NaN:
+              this.setState ({inputValue: [arr[0],1]});
+              console.log('hit NAN');
+              
+          case targetE <= arr[0]:
+              this.setState ({inputValue: [arr[0],targetE*10]});
+          break;
+          default:
+              this.setState ({inputValue: [arr[0],targetE] });
         }
-        else{
-          this.setState ({inputValue: [arr[0],e] });
-        }
+        // if (targetE <= arr[0]){
+        //   this.setState ({inputValue: [arr[0],targetE*10]});
+        // }
+        // else{
+        //   this.setState ({inputValue: [arr[0],targetE] });
+        // }
         console.log(this.state.inputValue + ': from onchanger 1');
       }
       //left button changes
       if (num === -1){
-        if(e >= arr[1]){
+        if(targetE >= arr[1]){
           this.setState ({inputValue: [arr[1] -1, arr[1]] });
         }
         else{
-          this.setState ({inputValue: [e, arr[1]] });
+          this.setState ({inputValue: [targetE, arr[1]] });
         }
         
         console.log(this.state + 'from onChanger -1');
       }
     } 
     //change coming from slider
-    if(num === 0){
+    else{
       this.setState ({inputValue: e});
       console.log(this.state + 'from onChanger 0 {' + e + '}');
     }
@@ -112,3 +135,10 @@ class ProductSideBarSlider extends React.Component {
 }
 
 export default ProductSideBarSlider;
+
+
+
+// {'Airfoils': '– Moso bamboo – 60”  diameter', 'Airfoil Finishes ': 'Caramel Bamboo or Cocoa', 'BambooHardware Finishes': 
+//  'Satin Nickel,Oil-Rubbed Bronze, Black or White', 'Motor' : 'EC motor with digital inverter drive', 'Exceeds ENERGY STAR fan efficiency requirements by up to 1200%' : null, 'Controls' : 'Remote control Remote control (included), Haiku Home mobile app, Haiku Wall Control (optional), or Amazon Alexa-enabled devices (optional)' ,'Onboard Sensors ' :  'Ambient and surface temperature, relative humidity, and passive infrared sensors enable SenseME technology. Technology lets you automate your fan’s operation to maximize convenience and energy savings', 'Environment' :  'Indoor use only.' , 'Accessories' : 'Haiku Light Kit and Haiku Wall Control. See respective spec sheets for details. A Tall Ceiling Kit and Stabilizer Kit are available for ceilings 14 feet (4.3 meters) or taller.', 'Patented LED light module (optional) seamlessly integrates with the body of the fan': null, 'Made in the U.S.A.':null}
+
+// { 'Airflow (CFM)': 5,467 , 'Power (W)': ['Min': 1.95, 'Max': 21.14], 'Operating voltage (VAC)': ['Min': 100, 'Max':240], 'Fan speed (RPM)': ['Min':35, 'Max':200],'Number of fan speeds': 7, 'Sound at max speed (dBA)': 35, 'Fan sweep diameter (in)': 60, 'Height (in)': ['Min' :12.3, 'Max':57], 'Weight (lbs)': 13}

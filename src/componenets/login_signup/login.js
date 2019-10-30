@@ -1,11 +1,18 @@
+
 import React from 'react';
+import {Input, Card, Button, Form, Header, Divider} from 'semantic-ui-react';
+import {Link, Redirect} from 'react-router-dom';
+
+import {connect} from 'react-redux';
+
+import {loginUser} from '../../actions/authActions';
 import Logo from '../../images/joole_logo.png';
 import Home from './Home';
 
-import {Input, Card, Button, Form, Header, Divider} from 'semantic-ui-react';
-import axios from 'axios';
 
-import {Link, Redirect} from 'react-router-dom';
+
+
+
 
 import './form.css';
 
@@ -13,18 +20,18 @@ import './form.css';
 class LoginForm extends React.Component{
 
     url = 'http://localhost:8080/api/auth/signin';
+
+    componentDidMount(){
+        console.log(this.props);
+        console.log('redux working? if props show up under here')
+
+    }
     
     state = {
         username: '',
         password: ''
     }
 
-    // style = {
-    //     position: 'absolute',
-    //     top: 0,
-    //     bottom: 0,
-    //     backgroundColor: 'red'
-    // };
     handleChange(e) {
         const target = e.target;
         const name = target.name;
@@ -46,30 +53,16 @@ class LoginForm extends React.Component{
     }
 
     handleSubmit(e){
-        console.log('fi el handle submit');
+
         
-        axios.post(this.url, this.state)
-        .then(response => {
-            console.log('login works');
-            console.log(response);
-            this.loginSuccess()
-            
-                } 
-            )
-            .catch(error =>{
-                console.log('shit dont work');
-                console.log(this.state);
-                
-                alert(error);
-            })
+            //loginUser()
+     return this.props.loginUser (this.state, this.url, this.loginSuccess);
+  
+
     }
 
 
-    //debugging purposes
-    tryThis() {
-        return console.log('clicked!');
-        
-    }
+
 
 render (){
 
@@ -133,5 +126,15 @@ render (){
     )
 }
 }
+// FIXME: why is it convention to match the key names to the key names, in the root reducer/'s children, because props are still added if I don't
+const mapStateToProps = state => ({
+    loading: state.auth.loading,
+    error: state.auth.error,
+    isAuthenticated: state.auth.token !== null,
+})
 
-export default LoginForm;
+// const mapDispatchToProps = dispatch => ({
+
+// })
+
+export default connect(mapStateToProps, {loginUser}) (LoginForm);
