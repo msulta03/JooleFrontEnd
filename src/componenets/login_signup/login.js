@@ -67,7 +67,6 @@ class LoginForm extends React.Component{
 render (){
 
     if (this.state.loggedIn === true){
-        this.tryThis();
         return (
             <Redirect render={Home} to="/home"/>
         );

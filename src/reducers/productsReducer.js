@@ -1,10 +1,10 @@
 import * as actions from '../actions/ActionTypes';
 import {updateObject} from '../tools';
 
-const initState = {
+const prodState = {
     loading: false,
-    products: [],
-    error: null,
+    products: null,
+    error: null
 }
 
 
@@ -30,13 +30,15 @@ const loadProductsByCat = (state, action) => {
     return updateObject(state, {products: action.payload});
 }
 
-const prodReducer = (state = initState, action) => {
+const prodReducer  = (state = prodState, action) =>  {
     switch(action.type){
         case actions.PRODUCT_FETCH_START: return loadProducts(state,action);
         case actions.PRODUCT_FETCH_FAIL: return loadFail(state,action);
         case actions.GET_ALL_PRODUCTS: return loadSuccess(state,action);
         case actions.GET_PRODUCT_BY_ID: return loadProductsByID(state,action);
         case actions.GET_PRODUCT_BY_CATEGORY: return loadProductsByCat(state,action);
+        default:
+            return state;
     }
 }
 

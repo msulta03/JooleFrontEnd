@@ -9,15 +9,15 @@ function ProductCard (props) {
       ]
     return (
         <Card className = 'Product'>
-        <p>verified on date: 11/11/11</p>
-        <Image src='https://react.semantic-ui.com/images/avatar/large/matthew.png' wrapped ui={false} />
+        <p>{props.verifiedOn}</p>
+        <Image src={props.imageSrc} wrapped ui={false} />
         <Card.Content>
-          <Card.Header>Fan Name</Card.Header>
+          <Card.Header>{props.name}</Card.Header>
           <Card.Meta>
-            <span className='date'>Joined in 2015</span>
+            <span className='date'>{props.spec}</span>
           </Card.Meta>
           <Card.Description>
-            Matthew is a musician living in Nashville.
+            {props.pastSpec}
           </Card.Description>
         </Card.Content>
         <Card.Content extra>

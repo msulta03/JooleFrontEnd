@@ -10,10 +10,10 @@ import Routing from './componenets/routing/routes';
 
 class  App extends Component {
 
-  componentDidMount() {
-    console.log ('from app component: ')
-    console.log(this.props)
-  }
+  // componentDidMount() {
+  //   console.log ('from app component: ')
+  //   console.log(this.props)
+  // }
   render (){
     return (
       <Router>

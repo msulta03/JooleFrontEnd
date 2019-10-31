@@ -5,8 +5,9 @@ import prodReducer from './productsReducer';
 
 
 
-export default combineReducers({
+export default combineReducers(
+    {
     auth: authReducer,
-    products: prodReducer,
+    products: prodReducer
     }
 );
